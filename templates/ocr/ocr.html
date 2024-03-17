@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}OCR{% endblock %}
+
+{% block heading %}OCR{% endblock %}
+
+{% block content %}
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='ocr/ocr_style.css') }}">
+</head>
+<body>
+    <form method="POST" action="/ocr/" enctype="multipart/form-data">
+        <div class="file-upload">
+            <input type="file" name="file" accept=".pdf,.jpg,.jpeg,.png" required>
+            <button type="submit">Start OCR</button>
+        </div>
+    </form>
+    
+        <div class="output-text">
+            <h2>Output Text:</h2>
+            <textarea rows="10" cols="100">{% if output_text is not none %}{{ output_text }}{% endif %}</textarea>
+            <p>Word Count: {% if word_count is not none %}{{ word_count }}{% endif %}</p>
+            <p id="num-pages-processed">Pages Processed: {% if num_pages_processed is not none %}{{ num_pages_processed }}{% endif %}</p>
+        </div>
+{% endblock %}

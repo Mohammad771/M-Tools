@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Home{% endblock %}</title>
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='M_Tools_Favicon.png')}}">
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <h1 class="heading">{% block heading %}M-Tools{% endblock %}</h1>
+  
+  <div class="sidebar">
+    <h2 class="sidebar-title">Tools</h2>
+    <ul>
+        <li{% if active_link == 'ocr' %} class="active"{% endif %}><a href="{{ url_for('ocr.ocr_home') }}">OCR</a></li>
+        <!-- <li{% if active_link == 'auto_certification' %} class="active"{% endif %}><a href="#">Auto Certification</a></li> -->
+        <li{% if active_link == 'auto_translation' %} class="active"{% endif %}><a href="#">Auto Translation</a></li>
+        <li{% if active_link == 'gpt4' %} class="active"{% endif %}><a href="#">GPT-4</a></li>
+        <li{% if active_link == 'auto_certification' %} class="active"{% endif %}><a href="{{ url_for('auto_certification.auto_certification') }}">Auto Certification</a></li>
+        <li{% if active_link == 'date_converter' %} class="active"{% endif %}><a href="{{ url_for('date_converter.handle_conversion') }}">Date Converter</a></li>
+        <li{% if active_link == 'numbers_converter' %} class="active"{% endif %}><a href="{{ url_for('date_converter.numbers_converter') }}">Numbers Converter</a></li>
+    </ul>
+  </div>
+  
+  <div class="content">
+    {% block content %}{% endblock %}
+  </div>
+  
+</body>
+</html>
+
+
+
+<script>
+    window.addEventListener('DOMContentLoaded', function() {
+      var sidebarLinks = document.querySelectorAll('.sidebar li');
+      sidebarLinks.forEach(function(link) {
+        link.addEventListener('click', function() {
+          window.location.href = link.querySelector('a').href;
+        });
+      });
+    });
+  </script>
+  
+  <script>
+    if (window.history.replaceState ) {
+      window.history.replaceState( null, null, window.location.href );
+    }
+  </script>
+{% block js %} {% endblock %}

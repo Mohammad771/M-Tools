@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %}Date Converter{% endblock %}
+
+{% block heading %}Date Converter{% endblock %}
+
+{% block content %}
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='date_converter/date_converter.css') }}">
+</head>
+<body>
+    <form method="POST" action="{{ url_for('date_converter.handle_conversion') }}">
+        <div class="date-converter">
+            <label for="input_date">Input Date:</label>
+            <input type="text" id="input_date" name="input_date">
+
+            <label for="conversion_type">Conversion Type:</label>
+            <select id="conversion_type" name="conversion_type">
+                <option value="auto">Auto</option>
+                <option value="hijri_to_ad">Hijri to AD</option>
+                <option value="ad_to_hijri">AD to Hijri</option>
+            </select>
+
+            <button type="submit">Convert</button>
+        </div>
+        <p style="font-size: small; color: rgb(68, 68, 68);">Please enter the date in one of these formats: 1403-2-17 OR 1403/2/17</p>
+    </form>
+
+    <div class="converted-date">
+        <h2>Converted Date:</h2>
+        <p>{% if converted_date is not none %}{{ converted_date }}{% endif %}</p>
+    </div>
+</body>
+{% endblock %}

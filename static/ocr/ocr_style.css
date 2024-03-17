@@ -1,0 +1,56 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.file-upload {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 32px;
+}
+
+.file-upload input[type="file"] {
+    font-size: 16px;
+    padding: 8px;
+    border-radius: 8px 0 0 8px;
+    border: none;
+    background-color: #f2f2f2;
+    color: #555;
+}
+
+.file-upload button[type="submit"] {
+    font-size: 16px;
+    padding: 8px 16px;
+    border-radius: 0 8px 8px 0;
+    border: none;
+    background-color: #0072ca;
+    color: #fff;
+    cursor: pointer;
+}
+
+.output-text {
+    margin: 32px;
+}
+
+.output-text h2 {
+    margin-top: 0;
+}
+
+.output-text textarea {
+    font-size: 16px;
+    padding: 8px;
+    width: 100%;
+    border-radius: 8px;
+    border: none;
+    background-color: #f2f2f2;
+    color: #555;
+    resize: vertical;
+}
+
+.output-text p {
+    margin: 16px 0;
+}

@@ -1,0 +1,90 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 40px; /* Add margin around the body */
+    padding: 0;
+}
+
+h1.center {
+    text-align: center;
+}
+
+.add-task-button {
+    display: block;
+    margin: 16px auto;
+    padding: 12px 24px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.sort-container {
+    text-align: right;
+    margin-bottom: 16px;
+}
+
+.sort-button {
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.task-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.task-table th,
+.task-table td {
+    padding: 8px;
+    text-align: center;
+    border: 1px solid #ccc;
+}
+
+.task-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+.task-table td button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.button-container {
+    margin-top: 16px;
+    text-align: center;
+}
+
+.load-button,
+.save-button {
+    margin: 8px;
+    padding: 12px 24px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.edit-button,
+.delete-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.edit-button i,
+.delete-button i {
+    color: #007bff;
+    font-size: 18px;
+}

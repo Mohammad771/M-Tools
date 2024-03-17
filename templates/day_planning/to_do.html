@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Day Plan</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='day_planning/to_do.css') }}">
+</head>
+<body>
+    <h1 class="center">Day Plan</h1>
+
+    <button class="add-task-button" onclick="addTask()">Add Task</button>
+
+    <div class="sort-container">
+        <button class="sort-button" onclick="sortByPriority()">Sort by Priority</button>
+    </div>
+
+    <table class="task-table">
+        <thead>
+            <tr>
+                <th>Task Name</th>
+                <th>Due Date</th>
+                <th>Duration</th>
+                <th>Priority</th>
+                <th>Note</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for task in tasks %}
+            <tr>
+                <td>{{ task.name }}</td>
+                <td>{{ task.due_date }}</td>
+                <td>{{ task.duration }}</td>
+                <td>{{ task.priority }}</td>
+                <td>{{ task.note }}</td>
+                <td><button class="edit-button"><i class="fas fa-edit"></i></button></td>
+                <td><button class="delete-button"><i class="fas fa-trash"></i></button></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="button-container">
+        <form action="{{ url_for('to_do.load_tasks') }}" method="POST">
+            <button class="load-button" type="submit">Load Tasks</button>
+        </form>
+        <form class="task-form" action="{{ url_for('to_do.to_do_home') }}" method="POST">
+            <button class="save-button" type="submit">Save Tasks</button>
+        </form>
+    </div>
+
+    <script src="https://kit.fontawesome.com/0b1baeb153.js" crossorigin="anonymous"></script>
+    <script>
+        function addTask() {
+            // Implement the logic to add a task using JavaScript
+            // You can use AJAX to send the form data to the server-side function
+        }
+
+        function sortByPriority() {
+            // Implement the logic to sort tasks by priority using JavaScript
+            // You can use AJAX to send a request to the server-side function
+        }
+    </script>
+</body>
+</html>

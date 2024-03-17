@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}Numbers Converter{% endblock %}
+
+{% block heading %}Numbers Converter{% endblock %}
+
+{% block content %}
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='date_converter/date_converter.css') }}">
+</head>
+<body>
+    <form method="POST" action="{{ url_for('date_converter.numbers_converter') }}">
+        <div class="numbers-converter">
+            <label for="input_numbers">Input Numbers:</label>
+            <input type="text" id="input_numbers" name="input_numbers">
+
+            <button type="submit">Convert</button>
+        </div>
+    </form>
+
+    <div class="converted-numbers">
+        <h2>Converted Numbers:</h2>
+        <p>{% if converted_numbers is not none %}{{ converted_numbers }}{% endif %}</p>
+    </div>
+</body>
+{% endblock %}

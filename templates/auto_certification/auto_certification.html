@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}Auto Certification{% endblock %}
+
+{% block heading %}Auto Certification{% endblock %}
+
+{% block content %}
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='auto_certification/auto_certification.css') }}">
+</head>
+<body>
+    <form method="POST" action="{{ url_for('auto_certification.auto_certification') }}" enctype="multipart/form-data">
+        <div class="file-upload">
+            <input type="file" id="files" name="files" accept=".docx, .pdf, .jpg, .jpeg, .png" multiple>
+            <label for="files" class="custom-file-upload">Select File</label>
+            <br>
+            <span id="file-count">No files selected</span>
+            <button type="submit" class="generate-pdf-btn">Generate PDF</button>
+        </div>
+    </form>
+    {% if pdf_path %}
+    <p class="success">PDF generated successfully!</p>
+    <p>Download your merged PDF: <a href="{{ pdf_path }}" download>Click Here</a></p>
+    {% endif %}
+</body>
+{% endblock %}
+
+{% block js %}
+<script>
+    
+    document.addEventListener('DOMContentLoaded', function () {
+        const fileInput = document.getElementById('files');
+        const fileCountDisplay = document.getElementById('file-count');
+
+        fileInput.addEventListener('input', function () {
+            const fileCount = this.files.length;
+            const fileWord = fileCount === 1 ? 'file' : 'files';
+            fileCountDisplay.textContent = `${fileCount} ${fileWord} selected`;
+        });
+    });
+</script>
+{% endblock %}
+
